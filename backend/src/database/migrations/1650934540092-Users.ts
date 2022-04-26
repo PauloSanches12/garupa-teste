@@ -18,7 +18,7 @@ export class Users1650934540092 implements MigrationInterface {
                     },
                     {
                         name: "phone",
-                        type: "int"
+                        type: "varchar"
                     },
                     {
                         name: "email",
