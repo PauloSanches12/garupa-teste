@@ -30,4 +30,18 @@ export class UserController {
 
         return response.status(200).json(users);
     }
+
+    async deleteUser(request: Request, response: Response) {
+        const service = new UserService();
+
+        const { id } = request.params;
+
+        const user = await service.deleteUser(id);
+
+        if(user instanceof Error) {
+            return response.status(400).json(user.message);
+        }
+
+        return response.status(204).end();
+    }
 }

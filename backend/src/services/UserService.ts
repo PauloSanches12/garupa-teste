@@ -34,4 +34,12 @@ export class UserService {
 
         return users;
     }
+
+    async deleteUser(id: string) {
+        if(!await this.userRepository.findOne(id)) {
+            return new Error("Usuário não existente!");
+        }
+
+        await this.userRepository.delete(id);
+    }
 }
