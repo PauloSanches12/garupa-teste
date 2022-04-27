@@ -3,13 +3,14 @@ import { UserService } from "../services/UserService";
 
 export class UserController {
     async create(request:Request, response: Response) {
-        const { name, phone, email, city, state } = request.body;
+        const { name, phone, cpf, email, city, state } = request.body;
 
         const service = new UserService();
 
         const registerUser = await service.execute({
             name,
             phone,
+            cpf,
             email,
             city,
             state

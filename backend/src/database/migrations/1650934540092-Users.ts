@@ -17,6 +17,11 @@ export class Users1650934540092 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
+                        name: "cpf",
+                        type: "varchar",
+                        isUnique: true
+                    },
+                    {
                         name: "phone",
                         type: "varchar"
                     },
