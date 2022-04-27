@@ -28,4 +28,10 @@ export class UserService {
 
         return user;
     }
+
+    async getAllUsers() {
+        const users = this.userRepository.find();
+
+        return users;
+    }
 }

@@ -22,4 +22,12 @@ export class UserController {
 
         return response.status(201).json(registerUser);
     }
+
+    async getAllUsers(request: Request, response: Response) {
+        const service = new UserService();
+
+        const users = await service.getAllUsers();
+
+        return response.status(200).json(users);
+    }
 }
