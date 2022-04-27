@@ -44,4 +44,27 @@ export class UserController {
 
         return response.status(204).end();
     }
+
+    async update(request: Request, response: Response) {
+        const service = new UserService();
+
+        const { id } = request.params;
+        const { name, phone, email, city, state } = request.body;
+
+        const user = await service.update({
+            id,
+            name,
+            phone,
+            email,
+            city,
+            state
+        });
+
+        if(user instanceof Error) {
+            return response.status(400).json(user.message);
+        }
+
+        return response.status(200).json(user);
+
+    }
 }
