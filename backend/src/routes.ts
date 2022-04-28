@@ -4,11 +4,11 @@ import { auth } from "./middleware/userAuthentication";
 
 const routes = Router();
 
-const { create, getAllUsers, deleteUser, update } = new UserController();
+const { createUser, getAllUsers, deleteUser, updateUser } = new UserController();
 
-routes.post("/users", auth, create);
+routes.post("/users", auth, createUser);
 routes.get("/users", auth, getAllUsers);
 routes.delete("/users/:id", auth, deleteUser);
-routes.put("/users/:id", auth, update);
+routes.put("/users/:id", auth, updateUser);
 
 export { routes };

@@ -10,7 +10,7 @@ export class UserService {
         this.userRepository = userRepository;
     }
     
-    async execute({ city, email, name, phone, state, cpf }: UserRequest): Promise<User | Error> {
+    async createUser({ city, email, name, phone, state, cpf }: UserRequest): Promise<User | Error> {
 
         if(await this.userRepository.findOne({cpf})){
             return new Error("Usuário já cadastrado!");

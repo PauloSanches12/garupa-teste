@@ -2,12 +2,12 @@ import { Request, Response } from "express";
 import { UserService } from "../services/UserService";
 
 export class UserController {
-    async create(request:Request, response: Response) {
+    async createUser(request:Request, response: Response) {
         const { name, phone, cpf, email, city, state } = request.body;
 
         const service = new UserService();
 
-        const registerUser = await service.execute({
+        const registerUser = await service.createUser({
             name,
             phone,
             cpf,
@@ -42,10 +42,10 @@ export class UserController {
             return response.status(400).json(user.message);
         }
 
-        return response.status(204).end();
+        return response.status(200).json("Usuário removido!");
     }
 
-    async update(request: Request, response: Response) {
+    async updateUser(request: Request, response: Response) {
         const service = new UserService();
 
         const { id } = request.params;
@@ -65,6 +65,5 @@ export class UserController {
         }
 
         return response.status(200).json(user);
-
     }
 }
