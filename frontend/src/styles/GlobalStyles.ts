@@ -12,4 +12,7 @@ export default createGlobalStyle`
         outline: 0;
         font-family: sans-serif;
     }
+    body {
+        background-color: #f0f0f5;
+    }
 `

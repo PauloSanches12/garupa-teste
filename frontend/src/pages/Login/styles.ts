@@ -13,7 +13,7 @@ export const ContainerLogin = styled.div`
 export const TextLogin = styled.h1`
     font-size: 24px;
     font-weight: bold;
-    color: #47474D;
+    color: #67676b;
 `
 
 export const ContainerForm = styled.div`

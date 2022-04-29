@@ -34,7 +34,6 @@ function ListData() {
             )
           })
         }
-
       </ContentPagination>
     </Container>
   );

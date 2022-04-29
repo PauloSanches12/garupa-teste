@@ -10,6 +10,7 @@ export const Div = styled.div`
     border: 1px solid #ccc;
     margin-top: 10px;
     border-radius: 5px;
+    background-color: #FFF;
 `;
 
 export const Li = styled.li`
@@ -38,7 +39,7 @@ export const Title = styled.h2`
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    color: #47474D;
+    color: #67676b;
 `;
 
 export const ButtonPagination = styled.button`
@@ -46,10 +47,17 @@ export const ButtonPagination = styled.button`
     cursor: pointer;
     border-radius: 4px;
     margin: 5px;
+    background-color: #FFFAFA;
+    color: #000;
+    border: 1px solid #000;
 `;
 
 export const ContentPagination = styled.div`
     display: flex;
-    justify-content: center;
+    position: relative;
+    right: 65px;
     margin-top: 20px;
+    width: 390px;
+    padding: 5px;
+    border-radius: 5px;
 `;
