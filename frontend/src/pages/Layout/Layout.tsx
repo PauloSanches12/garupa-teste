@@ -1,9 +1,9 @@
-import Login from "../Login";
+import { AppRoutes } from "../../routes";
 
 function Layout() {
   return (
       <>
-        <Login />
+        <AppRoutes />
       </>
   );
 }

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ButtonContainer = styled.button`
   width: 100%;
+  cursor: pointer;
   padding: 15px;
   height: 100%;
   align-items: center;
@@ -20,4 +21,5 @@ export const LabelButton = styled.label`
     font-size: 16px;
     font-weight: bold;
     color: #FFF;
+    cursor: pointer;
 `
