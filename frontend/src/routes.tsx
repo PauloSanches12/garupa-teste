@@ -3,15 +3,13 @@ import {
     Routes,
     Route
 } from "react-router-dom";
-import ListData from "./pages/ListData";
 import Login from "./pages/Login";
 
 export function AppRoutes() {
     return (
         <Router>
-            <Routes>
+            <Routes location="/login">
                 <Route path="/login" element={<Login />} />
-                <Route path="/list" element={<ListData />} />
             </Routes>
         </Router>
     )

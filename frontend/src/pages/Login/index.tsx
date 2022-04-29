@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import ButtonContainer from '../../components/Button';
+import ListData from '../ListData';
 import { ContainerLogin, TextLogin, ContainerForm, Label, Input, Form } from './styles';
 
 interface InputProps {
@@ -13,33 +14,56 @@ function Login() {
     password: ""
   })
 
-  const handleLogin = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const { value, name } = event.target;
+  const [isLoggedIn, setIsLoggedIn ] = useState(false);
 
+  const handleForm = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = event.target;
+    
     setValues({
       ...values,
       [name]: value,
 
     })
-    console.log(event.target.value)
   }
+
+  const HandleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    
+    const { email, password } = values;
+
+    if (!email || !password) {
+      alert("Preencha todos os campos!");
+
+      setIsLoggedIn(false);
+
+      return;
+    }
+
+    setIsLoggedIn(true);
+  }, [values])
+  
+  if (isLoggedIn) {
+    return (
+      <ListData />
+    )
+  }
+
   return (
     <ContainerLogin>
       <TextLogin>Fazer Login</TextLogin>
-      <Form>
+      <Form onSubmit={HandleSubmit}>
         <ContainerForm>
           <Label>E-mail</Label>
-          <Input id='email' type="email" name='email' onChange={handleLogin} value={values.email} />
+          <Input id='email' type="email" name='email' onChange={handleForm} value={values.email} />
         </ContainerForm>
 
         <ContainerForm>
           <Label>Senha</Label>
-          <Input id='password' type="password" name='password' onChange={handleLogin} value={values.password} />
+          <Input id='password' type="password" name='password' onChange={handleForm} value={values.password} />
         </ContainerForm>
-        <ButtonContainer>
-         Entrar
-        </ButtonContainer>
+          <ButtonContainer>
+            Entrar
+          </ButtonContainer>
       </Form>
     </ContainerLogin>
   );
