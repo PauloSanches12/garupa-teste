@@ -11,6 +11,7 @@ export const Div = styled.div`
     margin-top: 10px;
     border-radius: 5px;
     background-color: #FFF;
+    box-shadow: 0 0 0.9em #ccc;
 `;
 
 export const Li = styled.li`
