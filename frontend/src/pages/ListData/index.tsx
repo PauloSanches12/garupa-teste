@@ -1,30 +1,14 @@
-import { useEffect, useState } from 'react';
-import api from '../../services/api';
+import { useEffect } from 'react';
+import Pagination from '../../RequestPagination/Pagination';
+import useBeers from '../../RequestPagination/useBeers';
 import { Container, Div, Li, Image, ContentImage, Span, Title } from './styles';
 
-interface BeersFormat {
-  name: string;
-  tagline: string;
-  first_brewed: string;
-  description: string;
-  image_url: string;
-}
-
 function ListData() {
-  const [beers, setBeers] = useState<BeersFormat[]>([]);
-
+  const { beers, requestBeers } = useBeers(3);
+  const { actualPage, setActualPage } = Pagination();
   useEffect(() => {
-    api.get("beers?page=1&per_page=10")
-      .then(function (response) {
-
-        const { data } = response;
-
-        setBeers(data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [])
+    requestBeers(actualPage)
+  }, [actualPage])
 
   return (
     <Container>
@@ -42,6 +26,14 @@ function ListData() {
           </ul>
         </Div>
       ))}
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        {
+          Array(5).fill('').map((_, index) => {
+            return <button key={index} onClick={() => setActualPage(index+1)}>{index+1}</button>
+          })
+        }
+
+      </div>
     </Container>
   );
 };
