@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import Pagination from '../../RequestPagination/Pagination';
 import useBeers from '../../RequestPagination/useBeers';
-import { Container, Div, Li, Image, ContentImage, Span, Title } from './styles';
+import { Container, Div, Li, Image, ContentImage, Span, Title, ButtonPagination, ContentPagination } from './styles';
 
 function ListData() {
-  const { beers, requestBeers } = useBeers(3);
+  const { beers, requestBeers } = useBeers(5);
   const { actualPage, setActualPage } = Pagination();
   useEffect(() => {
     requestBeers(actualPage)
@@ -26,14 +26,16 @@ function ListData() {
           </ul>
         </Div>
       ))}
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <ContentPagination>
         {
-          Array(5).fill('').map((_, index) => {
-            return <button key={index} onClick={() => setActualPage(index+1)}>{index+1}</button>
+          Array(10).fill('').map((_, index) => {
+            return  (
+                <ButtonPagination key={index} onClick={() => setActualPage(index+1)}>{index+1}</ButtonPagination>
+            )
           })
         }
 
-      </div>
+      </ContentPagination>
     </Container>
   );
 };

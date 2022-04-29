@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    /* border: 1px solid #ccc; */
     margin: auto;
     padding: 10px;
     width: 18rem;
@@ -38,4 +37,17 @@ export const Span = styled.span`
 export const Title = styled.h2`
     text-align: center;
     color: #000;
+`;
+
+export const ButtonPagination = styled.button`
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 5px;
+`;
+
+export const ContentPagination = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 `;
