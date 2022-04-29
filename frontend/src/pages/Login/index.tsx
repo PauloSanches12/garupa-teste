@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
-import ButtonContainer from '../../components/Button';
-import ListData from '../ListData';
-import { ContainerLogin, TextLogin, ContainerForm, Label, Input, Form } from './styles';
+import { useNavigate } from 'react-router-dom';
+import { ContainerLogin, TextLogin, ContainerForm, Label, Input, Form, ButtonContainer } from './styles';
 
 interface InputProps {
   email: string;
@@ -9,12 +8,12 @@ interface InputProps {
 }
 
 function Login() {
+  const navigate = useNavigate();
+
   const [values, setValues] = useState<InputProps>({
     email: "",
     password: ""
   })
-
-  const [isLoggedIn, setIsLoggedIn ] = useState(false);
 
   const handleForm = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target;
@@ -34,19 +33,11 @@ function Login() {
     if (!email || !password) {
       alert("Preencha todos os campos!");
 
-      setIsLoggedIn(false);
-
       return;
     }
-
-    setIsLoggedIn(true);
+    
+    navigate("/beer-list");
   }, [values])
-  
-  if (isLoggedIn) {
-    return (
-      <ListData />
-    )
-  }
 
   return (
     <ContainerLogin>

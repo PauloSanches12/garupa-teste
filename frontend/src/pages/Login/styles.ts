@@ -44,3 +44,22 @@ export const Input = styled.input`
         border: 1px solid #34CB79;
     }
 `
+
+export const ButtonContainer = styled.button`
+    display: flex;
+    background-color: #34CB79;
+    border-radius: 5px;
+    height: 50px;
+    width: 340px;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -0.015em;
+    color: #FFF;
+    text-decoration: none;
+
+    &:hover {
+        background-color: #1eba65;
+    }
+`;

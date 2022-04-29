@@ -36,7 +36,9 @@ export const Span = styled.span`
 
 export const Title = styled.h2`
     text-align: center;
-    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    color: #47474D;
 `;
 
 export const ButtonPagination = styled.button`

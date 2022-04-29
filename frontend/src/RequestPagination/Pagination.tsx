@@ -19,7 +19,7 @@ export default function Pagination() {
 
     useEffect(() => {
         const queryParams = qs.parse(location.search);
-        // const navigate = useNavigate();
+
         navigate({
             search: qs.stringify({
                 ...queryParams,

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import Pagination from '../../RequestPagination/Pagination';
-import useBeers from '../../RequestPagination/useBeers';
+import Pagination from '../../requestPagination/Pagination';
+import useBeers from '../../requestPagination/useBeers';
 import { Container, Div, Li, Image, ContentImage, Span, Title, ButtonPagination, ContentPagination } from './styles';
 
 function ListData() {
