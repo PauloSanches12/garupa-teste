@@ -43,10 +43,16 @@ export const Input = styled.input`
     &:hover{
         border: 1px solid #34CB79;
     }
+
+    &::placeholder {
+        font-size: 14px;
+        color: #b0b0b0;
+    }
 `
 
 export const ButtonContainer = styled.button`
     display: flex;
+    cursor: pointer;
     background-color: #34CB79;
     border-radius: 5px;
     height: 50px;

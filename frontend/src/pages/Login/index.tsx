@@ -45,12 +45,12 @@ function Login() {
       <Form onSubmit={HandleSubmit}>
         <ContainerForm>
           <Label>E-mail</Label>
-          <Input id='email' type="email" name='email' onChange={handleForm} value={values.email} />
+          <Input type="email" name='email' placeholder='exemplo@exemplo.com' onChange={handleForm} value={values.email} required />
         </ContainerForm>
 
         <ContainerForm>
           <Label>Senha</Label>
-          <Input id='password' type="password" name='password' onChange={handleForm} value={values.password} />
+          <Input type="password" name='password' placeholder='senha' onChange={handleForm} value={values.password} required />
         </ContainerForm>
           <ButtonContainer>
             Entrar
