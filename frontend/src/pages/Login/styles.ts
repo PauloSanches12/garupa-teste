@@ -69,3 +69,24 @@ export const ButtonContainer = styled.button`
         background-color: #1eba65;
     }
 `;
+
+export const ImageContent = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 5px;
+`
+
+export const Span = styled.span`
+   color: #365265;
+   font-weight: bold;
+   padding: 15px 0 10px 0;
+`
+
+export const ButtonImageContent = styled.button`
+   background: none;
+`
+
+export const InputImage = styled.input`
+   width: 35px;
+`
