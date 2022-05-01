@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Pagination from '../../requestPagination/Pagination';
+import { Pagination } from '../../requestPagination/Pagination';
 import useBeers from '../../requestPagination/useBeers';
 import { Container, Div, Li, Image, ContentImage, Span, Title, ButtonPagination, ContentPagination } from './styles';
 

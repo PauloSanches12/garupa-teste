@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import qs from 'query-string';
 
-export default function Pagination() {
+function Pagination() {
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -33,3 +33,5 @@ export default function Pagination() {
         actualPage
     }
 }
+
+export { Pagination }
