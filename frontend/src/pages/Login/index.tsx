@@ -54,11 +54,12 @@ function Login() {
   }, [values])
 
   const signInWithGoogle = async () => {
-    
-    if (await authGoogle()){
+    const auth = await authGoogle();
+
+    if (auth && !(auth instanceof Error)){
       navigate("/beer-list")
     } else {
-      alert("Erro na autenticação!")
+      return;
     }
   }
 
