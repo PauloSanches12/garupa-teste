@@ -124,6 +124,7 @@ O projeto estará rodando na porta 3333.
 Métodos | Endpoints
 ------------- | -------------
 GET  | /users
+GET  | /users/{id}
 POST  | /users
 PUT  | /users/{id}
 DELETE  | /users/{id}
