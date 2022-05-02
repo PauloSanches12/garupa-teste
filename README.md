@@ -61,7 +61,7 @@ yarn install
 ```
 ou
 ```bash
-npm intall
+npm install
 ```
 
 ### 3º Passo
