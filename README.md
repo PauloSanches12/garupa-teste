@@ -40,6 +40,8 @@ seguido de uma senha.
 
 Você também pode realizar o acesso através de sua conta do Google.
 
+### Link do projeto frontend em produção: (https://site-beers.netlify.app/)
+
 ## :rocket: Tecnologias Utilizadas
 
 -  [Reactjs](https://pt-br.reactjs.org/)
@@ -47,3 +49,80 @@ Você também pode realizar o acesso através de sua conta do Google.
 -  [Styled Components](https://styled-components.com/)
 -  [Firebase](https://firebase.google.com/?hl=pt)
 -  [Axios](https://github.com/axios/axios)
+
+## Como rodar o projeto backend
+1. Ter o [node](https://nodejs.org/en/) instalado na máquina, o [yarn](https://nodejs.org/en/) ou NPM e [insomnia](https://insomnia.rest/download) ou [postman](https://www.postman.com/downloads/).
+
+### 1º Passo
+na pasta do projeto, instale as dependências necessárias.
+
+```bash
+yarn install
+```
+ou
+```bash
+npm intall
+```
+
+### 3º Passo
+
+Configurar o arquivo do banco de dados, na raiz do projeto tem um arquivo chamado `ormconfigexemple.json`, crie ou altere o nome desse arquivo para `ormconfig.json`. O arquivo terá a estrutura abaixo, altere os dados necessários para a conexão com o seu banco local.
+
+```bash
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "",
+  "database": "users",
+  "entities": ["src/entities/*.ts"],
+  "migrations": ["src/database/migrations/*.ts"],
+  "cli": {
+    "entitiesDir": "src/entities",
+    "migrationsDir": "src/database/migrations"
+  }
+}
+```
+### 4º Passo
+
+Após a conexão bem sucedida com o banco, rode o comando abaixo para criação das `migrations` do banco.
+
+Criar migration:
+```bash
+yarn typeorm migration:run
+```
+Desfazer uma migration:
+
+```bash
+yarn typeorm migration:revert
+```
+
+### 5º Passo
+
+Para conseguir realizar requisições nos endpoints da aplicação, será necessário adicionar o `token` abaixo no `Header` do insomnia ou do postman, nas requisições: `GET`, `POST`, `PUT` e `DELETE`, caso contrário, um erro de `Falha na autenticação` será exibido:
+
+nome do header:
+```bash
+_token
+```
+valor do header
+```bash
+ae1980c688c5252ac76a0db02276e8ac44af2eed7cc1e8e5d22544f53a8ab0b13169cef43b0d1ef3381133ffb4cad731657225bd20cd35785794ca27baf200ec
+```
+
+### 6º Passo
+
+Para rodar o projeto, execute o comando abaixo:
+```bash
+yarn dev
+```
+O projeto estará rodando na porta 3333
+
+## :rocket: Tecnologias Utilizadas
+
+-  [Nodejs](https://nodejs.org/en/)
+-  [Typescript](https://www.typescriptlang.org/)
+-  [Express](https://expressjs.com/pt-br/)
+-  [PostgreSQL](https://www.postgresql.org/)
+-  [TypeORM](https://typeorm.io/)
