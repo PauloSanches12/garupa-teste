@@ -39,3 +39,11 @@ Ao rodar o projeto, você vai se deparar com uma tela de login, para ter acesso 
 seguido de uma senha.
 
 Você também pode realizar o acesso através de sua conta do Google.
+
+## :rocket: Tecnologias Utilizadas
+
+-  [Reactjs](https://pt-br.reactjs.org/)
+-  [Typescript](https://www.typescriptlang.org/)
+-  [Styled Components](https://styled-components.com/)
+-  [Firebase](https://firebase.google.com/?hl=pt)
+-  [Axios](https://github.com/axios/axios)
