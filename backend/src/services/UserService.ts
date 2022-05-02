@@ -35,6 +35,16 @@ export class UserService {
         return users;
     }
 
+    async getUserById(id: string) {
+        const user = await this.userRepository.findOne(id);
+
+        if (!user) {
+            return new Error("Usuário não encontrado!");
+        }
+
+        return user;
+    }
+
     async deleteUser(id: string) {
         if(!await this.userRepository.findOne(id)) {
             return new Error("Usuário não existente!");
