@@ -117,7 +117,39 @@ Para rodar o projeto, execute o comando abaixo:
 ```bash
 yarn dev
 ```
-O projeto estará rodando na porta 3333
+O projeto estará rodando na porta 3333.
+
+## Endpoints
+
+Métodos | Endpoints
+------------- | -------------
+GET  | /users
+POST  | /users
+PUT  | /users/{id}
+DELETE  | /users/{id}
+
+### Estrutura do método POST:
+```bash
+{
+  "name": "teste",
+  "phone": "9999999",
+  "cpf": "123456789",
+  "email": "teste@teste.com",
+  "city": "Palmas",
+  "state": "TO"
+}
+```
+
+### Estrutura do método PUT:
+```bash
+{
+  "name": "teste atualizado",
+  "phone": "8888888",
+  "email": "novoteste@teste.com",
+  "city": "Araguaina",
+  "state": "TO"
+}
+```
 
 ## :rocket: Tecnologias Utilizadas
 
