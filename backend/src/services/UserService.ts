@@ -1,9 +1,10 @@
 import { getCustomRepository } from "typeorm";
-import { UserRequest, UserUpdateRequest } from "../@types/types";
+import { UserRequest, UserUpdateRequest } from "../types/types";
 import { User } from "../entities/User";
+import { IUserService } from "../interface/IUserService";
 import { UserRepository } from "../repositories/UserRepository";
 
-export class UserService {
+export class UserService implements IUserService {
     private userRepository = getCustomRepository(UserRepository);
 
     constructor(userRepository = getCustomRepository(UserRepository)) {
@@ -53,7 +54,7 @@ export class UserService {
         await this.userRepository.delete(id);
     }
 
-    async update({ id, name, phone, city, email, state }: UserUpdateRequest) {
+    async updateUser({ id, name, phone, city, email, state }: UserUpdateRequest) {
 
         const user = await this.userRepository.findOne(id);
 
