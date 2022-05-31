@@ -1,6 +1,5 @@
 import { getCustomRepository } from "typeorm";
 import { UserRequest, UserUpdateRequest } from "../types/types";
-import { User } from "../entities/User";
 import { IUserService } from "../interface/IUserService";
 import { UserRepository } from "../repositories/UserRepository";
 
@@ -11,11 +10,12 @@ export class UserService implements IUserService {
         this.userRepository = userRepository;
     }
     
-    async createUser({ city, email, name, phone, state, cpf }: UserRequest): Promise<User | Error> {
+    async createUser({ city, email, name, phone, state, cpf }: UserRequest) {
 
         if(await this.userRepository.findOne({cpf})){
             return new Error("Usuário já cadastrado!");
         }
+
         const user = this.userRepository.create({
             name,
             phone,
