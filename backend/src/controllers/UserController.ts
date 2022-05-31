@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { UserService } from "../services/UserService";
+import UserFactory from "../factory/UserFactory";
 
-export class UserController {
+class UserController {
     async createUser(request:Request, response: Response) {
         const { name, phone, cpf, email, city, state } = request.body;
 
-        const service = new UserService();
+        const service = UserFactory.getService();
 
         const registerUser = await service.createUser({
             name,
@@ -24,7 +24,7 @@ export class UserController {
     }
 
     async getAllUsers(request: Request, response: Response) {
-        const service = new UserService();
+        const service = UserFactory.getService();
 
         const users = await service.getAllUsers();
 
@@ -32,7 +32,7 @@ export class UserController {
     }
 
     async getUserById(request: Request, response: Response) {
-        const service = new UserService();
+        const service = UserFactory.getService();
 
         const { id } = request.params;
         
@@ -46,7 +46,7 @@ export class UserController {
     }
 
     async deleteUser(request: Request, response: Response) {
-        const service = new UserService();
+        const service = UserFactory.getService();
 
         const { id } = request.params;
 
@@ -60,12 +60,12 @@ export class UserController {
     }
 
     async updateUser(request: Request, response: Response) {
-        const service = new UserService();
+        const service = UserFactory.getService();
 
         const { id } = request.params;
         const { name, phone, email, city, state } = request.body;
 
-        const user = await service.update({
+        const user = await service.updateUser({
             id,
             name,
             phone,
@@ -81,3 +81,5 @@ export class UserController {
         return response.status(200).json(user);
     }
 }
+
+export default new UserController();
